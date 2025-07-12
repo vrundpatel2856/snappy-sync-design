@@ -23,6 +23,7 @@ const mockItems = [
     postedAt: '2 days ago',
     rating: 4.8,
     isFavorited: false,
+    price: 45,
   },
   {
     id: '2',
@@ -36,6 +37,7 @@ const mockItems = [
     postedAt: '1 day ago',
     rating: 4.9,
     isFavorited: true,
+    price: 32,
   },
   {
     id: '3',
@@ -49,6 +51,7 @@ const mockItems = [
     postedAt: '3 days ago',
     rating: 4.7,
     isFavorited: false,
+    price: 85,
   },
   {
     id: '4',
@@ -62,6 +65,7 @@ const mockItems = [
     postedAt: '1 week ago',
     rating: 4.6,
     isFavorited: false,
+    price: 28,
   },
   // Add more mock items...
 ];

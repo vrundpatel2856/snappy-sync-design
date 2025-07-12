@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import AddItem from "./pages/AddItem";
 import Favorites from "./pages/Favorites";
 import NotFound from "./pages/NotFound";
+import AIAnalysis from "./pages/AIAnalysis";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +31,7 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-item" element={<AddItem />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/ai-analysis" element={<AIAnalysis />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

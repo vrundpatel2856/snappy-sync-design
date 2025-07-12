@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, MapPin, Clock, Star } from 'lucide-react';
+import { Heart, MapPin, Clock, Star, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface ItemCardProps {
@@ -17,6 +17,7 @@ interface ItemCardProps {
     postedAt: string;
     rating: number;
     isFavorited?: boolean;
+    price?: number;
   };
   onToggleFavorite?: (id: string) => void;
 }
@@ -26,6 +27,14 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, onToggleFavorite }) => {
     e.preventDefault();
     e.stopPropagation();
     onToggleFavorite?.(item.id);
+  };
+
+  const handleBuyClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    // In a real app, this would handle the purchase process
+    console.log('Buy clicked for item:', item.id);
+    alert(`Redirecting to purchase ${item.title}...`);
   };
 
   const getConditionColor = (condition: string) => {
@@ -75,6 +84,15 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, onToggleFavorite }) => {
               {item.condition}
             </span>
           </div>
+
+          {/* Price Badge */}
+          {item.price && (
+            <div className="absolute bottom-3 left-3">
+              <span className="bg-white/90 backdrop-blur-sm px-2 py-1 text-sm font-bold text-green-600 rounded-full">
+                ${item.price}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Content */}
@@ -100,7 +118,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, onToggleFavorite }) => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-xs text-gray-500">
+          <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
             <div className="flex items-center space-x-1">
               <MapPin className="w-3 h-3" />
               <span>{item.location}</span>
@@ -110,6 +128,16 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, onToggleFavorite }) => {
               <span>{item.postedAt}</span>
             </div>
           </div>
+
+          {/* Buy Button */}
+          <Button
+            onClick={handleBuyClick}
+            className="w-full bg-green-600 hover:bg-green-700 text-white"
+            size="sm"
+          >
+            <ShoppingCart className="w-4 h-4 mr-2" />
+            Buy Now
+          </Button>
         </div>
       </div>
     </Link>
