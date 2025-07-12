@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,6 +8,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Items from "./pages/Items";
+import ItemDetail from "./pages/ItemDetail";
 import Dashboard from "./pages/Dashboard";
 import AddItem from "./pages/AddItem";
 import Favorites from "./pages/Favorites";
@@ -25,6 +27,7 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/items" element={<Items />} />
+          <Route path="/items/:id" element={<ItemDetail />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-item" element={<AddItem />} />
           <Route path="/favorites" element={<Favorites />} />
