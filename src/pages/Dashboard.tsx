@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { User, Package, Heart, Settings, Plus, TrendingUp, Calendar, MapPin, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -263,18 +262,32 @@ const Dashboard = () => {
                 </TabsContent>
 
                 <TabsContent value="favorites" className="space-y-6">
-                  <h3 className="text-lg font-semibold">Favorite Items</h3>
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-lg font-semibold">Favorite Items</h3>
+                    <Button variant="outline" asChild>
+                      <a href="/favorites" className="flex items-center space-x-2">
+                        <Heart className="w-4 h-4" />
+                        <span>View All Favorites</span>
+                      </a>
+                    </Button>
+                  </div>
+                  
                   <div className="text-center py-8">
-                    <Heart className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                    <Heart className="w-16 h-16 text-red-300 mx-auto mb-4 fill-red-100" />
                     <h4 className="text-lg font-medium text-gray-900 mb-2">
-                      No favorites yet
+                      Your favorites will appear here
                     </h4>
                     <p className="text-gray-600 mb-4">
-                      Start browsing items and save your favorites here
+                      Start browsing items and save your favorites to see them here
                     </p>
-                    <Button variant="outline" asChild>
-                      <a href="/items">Browse Items</a>
-                    </Button>
+                    <div className="flex justify-center space-x-3">
+                      <Button variant="outline" asChild>
+                        <a href="/items">Browse Items</a>
+                      </Button>
+                      <Button asChild className="bg-green-600 hover:bg-green-700">
+                        <a href="/favorites">View Favorites</a>
+                      </Button>
+                    </div>
                   </div>
                 </TabsContent>
 
